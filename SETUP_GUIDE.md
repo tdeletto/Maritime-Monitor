@@ -72,9 +72,13 @@ npm install
 Create a `.env.local` file in the project root:
 
 ```env
-# API Keys (obtain from respective services)
-VITE_AIS_HUB_API_KEY=your_aishub_api_key_here
+# AIS Hub API - Free Public API (no authentication required, leave blank)
+VITE_AIS_HUB_API_KEY=
+
+# OpenWeather API (obtain from https://openweathermap.org/api)
 VITE_OPENWEATHER_API_KEY=your_openweather_api_key_here
+
+# Maritime Awareness API (optional)
 VITE_MARITIME_AWARENESS_API_KEY=your_api_key_here
 
 # Optional: Data refresh rates (in milliseconds)
@@ -86,6 +90,8 @@ VITE_WEATHER_UPDATE_INTERVAL=600000
 VITE_MAP_CENTER_LAT=0
 VITE_MAP_CENTER_LON=20
 ```
+
+**Note on AIS Hub**: The free public API requires no authentication. Leave `VITE_AIS_HUB_API_KEY` blank.
 
 ### Step 4: Development Server
 
@@ -273,16 +279,17 @@ if (appState.activeLayers.find(l => l.id === 'my-new-layer')) {
 
 ### Supported Data Sources
 
-#### 1. AIS Hub API
+#### 1. AIS Hub API (Free Public API)
 - **Purpose**: Real-time vessel position tracking
-- **Endpoint**: `https://www.aishub.net/api/...`
-- **Auth**: API key
-- **Rate Limit**: Check provider documentation
+- **Endpoint**: `https://data.aishub.net/ws.php`
+- **Auth**: None required (public API)
+- **Rate Limit**: No strict limits on public API
+- **Setup**: Leave `VITE_AIS_HUB_API_KEY` blank in `.env.local`
 
 #### 2. OpenWeather API
 - **Purpose**: Maritime weather data
 - **Endpoint**: `https://api.openweathermap.org/...`
-- **Auth**: API key
+- **Auth**: API key (get from https://openweathermap.org/api)
 - **Rate Limit**: 60 calls/minute (free tier)
 
 #### 3. Maritime Awareness Service
@@ -378,7 +385,8 @@ VITE_PORT=3000 npm run dev
 ```
 
 **Issue**: API key errors
-- Verify `.env.local` contains correct keys
+- Verify `.env.local` contains correct OpenWeather key
+- Leave `VITE_AIS_HUB_API_KEY` blank for free public AIS API
 - Check API rate limits and remaining quota
 - Ensure APIs are enabled in provider dashboard
 
