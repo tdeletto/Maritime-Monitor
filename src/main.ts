@@ -11,8 +11,10 @@ async function main() {
       throw new Error('App container element not found');
     }
     
-    // Clear loading message
-    appContainer.innerHTML = '';
+    // Create the necessary DOM structure
+    appContainer.innerHTML = `
+      <div id="map" style="width: 100%; height: 100%;"></div>
+    `;
     
     // Initialize the main application
     await initializeApp(appContainer);
