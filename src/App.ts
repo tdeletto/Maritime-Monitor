@@ -311,7 +311,19 @@ class MaritimeMonitorApp {
 let app: MaritimeMonitorApp | null = null;
 
 /**
- * Initialize app when DOM is ready
+ * Initialize app function that can be imported by main.ts
+ */
+export async function initializeApp(container: HTMLElement): Promise<MaritimeMonitorApp> {
+  if (!app) {
+    app = new MaritimeMonitorApp();
+    await app.init();
+    (window as any).maritimeMonitor = app;
+  }
+  return app;
+}
+
+/**
+ * Initialize app when DOM is ready (fallback for direct script loading)
  */
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', async () => {
