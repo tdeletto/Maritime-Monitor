@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  maritime-monitor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: maritime-monitor
+    ports:
+      - "3000:3000"
+    environment:
+      - VITE_AIS_HUB_API_KEY=${VITE_AIS_HUB_API_KEY}
+      - VITE_OPENWEATHER_API_KEY=${VITE_OPENWEATHER_API_KEY}
+      - VITE_MARITIME_AWARENESS_API_KEY=${VITE_MARITIME_AWARENESS_API_KEY}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - maritime-network
+    volumes:
+      - ./dist:/app/dist:ro
+    labels:
+      - "com.maritime-monitor.description=Real-time Maritime Intelligence Platform"
+      - "com.maritime-monitor.version=1.0.0"
+
+networks:
+  maritime-network:
+    driver: bridge
+
+volumes:
+  maritime-data:
+    driver: local
