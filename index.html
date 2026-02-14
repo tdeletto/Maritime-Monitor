@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https: http://localhost:5173 ws: wss: blob: data:; img-src 'self' data: blob: https:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https:; worker-src 'self' blob:; font-src 'self' data: https:; media-src 'self' data: blob: https:;" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- Primary Meta Tags -->
+    <title>Maritime Monitor - Global Shipping Intelligence</title>
+    <meta name="title" content="Maritime Monitor - Global Shipping Intelligence Dashboard" />
+    <meta name="description" content="Real-time maritime intelligence monitoring system tracking global shipping routes, trade volumes, maritime conflicts, piracy incidents, weather events, refugee movements, and shipping policy developments." />
+    <meta name="keywords" content="maritime intelligence, shipping intelligence, AIS tracking, piracy alerts, maritime security, trade routes, shipping analytics, port monitoring, vessel tracking, maritime policy, refugee tracking, weather at sea, geopolitical intelligence, maritime news" />
+    <meta name="author" content="Tom D'Eletto" />
+    <meta name="theme-color" content="#0a0f0a" />
+    <meta name="robots" content="index, follow" />
+    <meta name="application-name" content="Maritime Monitor" />
+    <meta name="subject" content="Real-Time Maritime & Shipping Intelligence" />
+    <meta name="classification" content="Maritime Intelligence, Shipping Analytics, OSINT Tool" />
+    <meta name="coverage" content="Worldwide" />
+    <meta name="distribution" content="Global" />
+    <meta name="rating" content="General" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://maritime-monitor.app/" />
+    <meta property="og:title" content="Maritime Monitor - Global Shipping Intelligence" />
+    <meta property="og:description" content="Real-time maritime intelligence dashboard with AIS tracking, piracy alerts, weather monitoring, and shipping policy updates." />
+    <meta property="og:image" content="https://maritime-monitor.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Maritime Monitor" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://maritime-monitor.app/" />
+    <meta name="twitter:title" content="Maritime Monitor - Global Shipping Intelligence" />
+    <meta name="twitter:description" content="Real-time maritime intelligence dashboard with AIS tracking, piracy alerts, weather monitoring, and shipping policy updates." />
+    <meta name="twitter:image" content="https://maritime-monitor.app/og-image.png" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Maritime Monitor",
+      "alternateName": "Maritime Intelligence Dashboard",
+      "url": "https://maritime-monitor.app/",
+      "description": "Real-time maritime intelligence monitoring system with AIS vessel tracking, piracy alerts, weather monitoring, and shipping policy intelligence.",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Tom D'Eletto"
+      },
+      "featureList": [
+        "Real-time AIS vessel tracking",
+        "Piracy and maritime crime alerts",
+        "Weather event monitoring",
+        "Refugee and humanitarian tracking",
+        "Maritime policy updates",
+        "Trade route analysis",
+        "Port status monitoring",
+        "Geopolitical intelligence",
+        "Shipping analytics",
+        "Interactive world map visualization"
+      ],
+      "keywords": "maritime intelligence, shipping, AIS tracking, piracy, trade routes, vessel tracking, maritime security, weather"
+    }
+    </script>
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://api.aishub.net" />
+    <link rel="preconnect" href="https://api.weather.gov" />
+    <link rel="preconnect" href="https://newsapi.org" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+          'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+          'Helvetica Neue', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      #app {
+        width: 100%;
+        height: 100%;
+      }
+
+      .loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background: #0a0f0a;
+        color: #e0e0e0;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="loading">Loading Maritime Monitor...</div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
